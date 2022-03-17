@@ -1,19 +1,9 @@
-<p id="notice"><%= notice %></p>
+<div class="section">
+  <div class="container">
+    <div class="row">
 
-<p>
-  <strong>Title:</strong>
-  <%= @event.title %>
-</p>
-
-<p>
-  <strong>Detail:</strong>
-  <%= @event.detail %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @event.location %>
-</p>
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+    <%= render 'event' %>
+    
+    </div>
+  </div>
+</div>
