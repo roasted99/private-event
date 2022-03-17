@@ -1,0 +1,39 @@
+<div class="col-8">
+  <h1>Events</h1>
+  <% @events.each do |event| %>
+  <div class="card">
+   <div class="card-body">
+    <h4 class="card-title"><strong><%= event.title %></strong></h4>
+    <h6 class="card-subtitle mb-2 text-muted"><%= event.location %></h6>
+    <p class="card-text"><%= event.detail %></p>
+    
+    <div class="card-footer">
+    2 days ago
+    <div class="d-flex justify-content-end">
+        <ul class="list-group list-group-horizontal">
+          
+            <%= link_to event, class: "list-group-item" do %>
+            <span class="icon"><i class="fa fa-link" aria-hidden="true"></i></span>
+            <% end %>
+          
+          
+            <%= link_to edit_event_path(event), class: "list-group-item" do %>
+            <span class="icon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+            <% end %>
+          
+            <br />
+            <%= link_to event,
+                          method: :delete,
+                          data: { confirm: "Are you sure?" },
+                          class: "list-group-item" do %>
+            <span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
+            <% end %>
+        </ul>
+      </div>
+  </div>
+  </div>
+
+</div>
+<% end %>
+</div>
+
