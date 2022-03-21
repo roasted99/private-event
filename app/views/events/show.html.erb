@@ -1,9 +1,37 @@
-<div class="section">
+<section class="section">
   <div class="container">
-    <div class="row">
-
-    <%= render 'event' %>
-    
+  
+  <div class="card">
+   <div class="card-body">
+   <div class="text-center">
+    <h2 class="card-title"><strong><%= @event.title %></strong></h2>
+    <h6 class="card-subtitle mb-2 text-muted"><%= @event.location %></h6>
+    <h6 class="card-subtitle mb-2 text-muted"><%= @event.starts_at %></h6>
+    <h6 class="card-subtitle">Hosted by: <%= @event.creator.name %></h6>
     </div>
+    <br>
+    <p class="card-text"><%= @event.detail %></p>
+    
+    <div class="card-footer">
+    <div class="d-flex justify-content-end">
+        <ul class="list-group list-group-horizontal">
+          
+            <%= link_to edit_event_path(@event), class: "list-group-item" do %>
+            <span class="icon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+            <% end %>
+          
+            <br />
+            <%= link_to @event,
+                          method: :delete,
+                          data: { confirm: "Are you sure?" },
+                          class: "list-group-item" do %>
+            <span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
+            <% end %>
+        </ul>
+      </div>
   </div>
+  </div>
+
 </div>
+  </div>
+</section>

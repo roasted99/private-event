@@ -14,6 +14,10 @@
  *= require_self
  */
 
- .alert-dismissal:not(:last-child) {
+ .alert:not(:last-child) {
    margin-bottom: 0;
+ }
+
+ nav {
+   margin-bottom: 2em;
  }

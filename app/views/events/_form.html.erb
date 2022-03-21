@@ -23,6 +23,12 @@
       <%= form.text_field :location, require: true, class: "form-control" %>
     </div>
 
+
+      <div class="field">
+      <%= form.label :starts_at %>
+      <%= form.datetime_field :starts_at, require: true, class: "form-control", placeholder: "dd/mm/yyyy hh:mm am/pm" %>
+    </div>
+
     <div class="field">
       <%= form.label :detail %>
       <%= form.text_area :detail, rows:10, require: true, class: "form-control" %>

@@ -46,6 +46,21 @@
       <div class="nav-item">
         <%= link_to 'Create an event', new_event_path, class: "btn btn-secondary" %>
       </div>
+       <% if user_signed_in? %>
+              <div class="nav-item">
+                <%= link_to current_user.name, edit_user_registration_path, class: "btn btn-primary" %>
+              </div>
+              <div>
+                <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"btn btn-primary" %>
+              </div>
+            <% else %>
+            <div class="nav-item">
+              <%= link_to 'Sign In', new_user_session_path, class: "btn btn-primary" %>
+            </div>
+						<div class="nav-item">
+              <%= link_to 'Sign Up', new_user_registration_path, class: "btn btn-primary" %>
+            </div>
+            <% end %>
     
     </div> 
     </div>
