@@ -48,7 +48,10 @@
       </div>
        <% if user_signed_in? %>
               <div class="nav-item">
-                <%= link_to current_user.name, edit_user_registration_path, class: "btn btn-primary" %>
+                <%= link_to current_user.name, user_path(current_user.id), class: "btn btn-primary" %>
+              </div>
+              <div class="nav-item">
+                <%= link_to "Setting", edit_user_registration_path, class: "btn btn-primary" %>
               </div>
               <div>
                 <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"btn btn-primary" %>

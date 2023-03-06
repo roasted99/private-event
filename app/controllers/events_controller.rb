@@ -59,6 +59,27 @@ class EventsController < ApplicationController
     end
   end
 
+  def attend 
+    @event = Event.find(params[:id])
+    attended_event = EventAttendence.new(attendee_id: current_user.id, attended_event_id: @event.id)
+    if attended_event.save
+      flash[:notice] = "Congrats! You are attending this event!"
+      redirect_to @event
+    else
+      flash[:alert] = "You are already on the list!"
+      redirect_to @event
+    end
+  end
+
+  def unattend
+    @event = Event.find(params[:id])
+    attended_event = EventAttendence.find(attendee_id: current_user.id, event_id: @event.id)
+    attended_event.destroy
+    flash[:notice] = "You are no longer attending this event!"
+    redirect_to @event
+  end
+    
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
